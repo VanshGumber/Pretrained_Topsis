@@ -1,0 +1,6 @@
+Model,Accuracy,F1-score,Inference Time (ms),Model Size (MB),Parameters (M)
+BERT-Base,0.49,0.3223,63.74,417.67,109.48
+DistilBERT,0.9167,0.9166,32.23,255.43,66.96
+Twitter-RoBERTa,0.4967,0.5787,63.94,475.52,124.65
+Twitter-XLM,0.4567,0.4966,73.07,1060.69,278.05
+RoBERTa-Large,0.9283,0.9283,242.38,1355.64,355.36
