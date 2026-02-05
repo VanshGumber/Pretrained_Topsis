@@ -1,16 +1,15 @@
-# TOPSIS-Based Evaluation of Pretrained Text Classification Models
+# TOPSIS Based Evaluation of Pretrained Text Classification Models
 
-This project implements a **multi-criteria decision-making (MCDM)**
-framework using **TOPSIS** to evaluate and rank multiple **pretrained
-transformer-based text classification models**.
+This project implements a MCDM
+framework using TOPSIS to evaluate and rank multiple pretrained
+text classification models.
 
 Rather than selecting a model purely based on accuracy, this approach
-balances **performance**, **efficiency**, and **resource constraints**,
-making it suitable for real-world deployment scenarios.
+balances performance, efficiency, and resource constraints.
 
 ------------------------------------------------------------------------
 
-## 📌 Models Evaluated
+## Models Evaluated
 
 -   **BERT-Base**
 -   **DistilBERT (SST-2 fine-tuned)**
@@ -18,24 +17,23 @@ making it suitable for real-world deployment scenarios.
 -   **Twitter-XLM-RoBERTa**
 -   **RoBERTa-Large**
 
-All models are evaluated on the **SST-2 (Stanford Sentiment Treebank
-v2)** validation set using identical preprocessing.
+All models are evaluated on the SST-2 validation set using identical preprocessing.
 
 ------------------------------------------------------------------------
 
-## 📊 Evaluation Criteria
+## Evaluation Criteria
 
-  Criterion                         Type
-  --------------------------------- -------------
-  Accuracy                          Benefit (+)
-  F1-score (weighted)               Benefit (+)
-  Inference Time (ms/sample)        Cost (--)
-  Model Size (MB)                   Cost (--)
-  Number of Parameters (Millions)   Cost (--)
+| Criterion                         | Type        |
+|----------------------------------|-------------|
+| Accuracy                         | Benefit (+) |
+| F1-score (weighted)              | Benefit (+) |
+| Inference Time (ms/sample)       | Cost (–)    |
+| Model Size (MB)                  | Cost (–)    |
+| Number of Parameters (Millions)  | Cost (–)    |
 
 ------------------------------------------------------------------------
 
-## ⚖️ TOPSIS Weights
+## TOPSIS Weights
 
     Accuracy        : 0.30
     F1-score        : 0.25
@@ -45,7 +43,7 @@ v2)** validation set using identical preprocessing.
 
 ------------------------------------------------------------------------
 
-## 🛠️ Methodology
+## Methodology
 
 1.  Load SST-2 validation samples
 2.  Run inference for each model (CPU-based)
@@ -57,28 +55,26 @@ v2)** validation set using identical preprocessing.
 
 ------------------------------------------------------------------------
 
-## 📈 Results Summary
+## Results Summary
 
-  Rank   Model             Key Insight
-  ------ ----------------- --------------------------------------------
-  🥇 1   DistilBERT        Best balance of performance and efficiency
-  🥈 2   Twitter-RoBERTa   Good trade-off despite domain mismatch
-  🥉 3   BERT-Base         Heavy model with weak fine-tuning
-  4      Twitter-XLM       Multilingual overhead
-  5      RoBERTa-Large     Highest accuracy but impractical cost
-
-------------------------------------------------------------------------
-
-## 💡 Key Takeaway
-
-> **Higher accuracy does not necessarily imply better overall
-> suitability.**\
-> Lightweight models like **DistilBERT** can outperform larger models
-> when efficiency and deployment constraints are considered.
+| Rank | Model            | Key Insight                                   |
+|------|------------------|-----------------------------------------------|
+| 1    | DistilBERT       | Best balance of performance and efficiency    |
+| 2    | Twitter-RoBERTa  | Good trade-off despite domain mismatch        |
+| 3    | BERT-Base        | Heavy model with weak fine-tuning             |
+| 4    | Twitter-XLM      | Multilingual overhead                         |
+| 5    | RoBERTa-Large    | Highest accuracy but impractical cost         |
 
 ------------------------------------------------------------------------
 
-## ▶️ How to Run
+## Key Takeaway
+
+> Higher accuracy does not necessarily imply better overall suitability.\
+> Lightweight models like DistilBERT can outperform larger models when efficiency and deployment constraints are considered.
+
+------------------------------------------------------------------------
+
+## How to Run
 
 ``` bash
 pip install transformers datasets torch scikit-learn pandas numpy tqdm sentencepiece tiktoken
@@ -90,14 +86,6 @@ TOPSIS scores and ranks
 
 ------------------------------------------------------------------------
 
-## 📚 Notes
-
--   CPU-only evaluation
+## Notes
 -   Weighted F1 used to support binary and multiclass outputs
 -   All models evaluated under identical conditions
-
-------------------------------------------------------------------------
-
-## 📄 License
-
-This project is intended for academic and educational use.
