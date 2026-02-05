@@ -78,7 +78,7 @@ All models are evaluated on the SST-2 validation set using identical preprocessi
 
 ``` bash
 pip install transformers datasets torch scikit-learn pandas numpy tqdm sentencepiece tiktoken
-python Pretrained\ Topsis.py
+python Pretrained Topsis.py
 ```
 
 Outputs: - `models.csv` → raw evaluation metrics - `model_topsis.csv` →
